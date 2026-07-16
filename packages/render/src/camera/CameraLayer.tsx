@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import type { CropFrame } from "@sizzle/schema";
-import { cropToTransform } from "./cropToTransform.js";
+import { cropToTransform } from "./cropToTransform";
 
 export const CameraLayer: React.FC<{
   cropTrack: CropFrame[];
