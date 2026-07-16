@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { cropToTransform } from "./cropToTransform.js";
+import { cropToTransform } from "./cropToTransform";
 
 describe("cropToTransform", () => {
   it("full frame => scale 1, no translate", () => {
