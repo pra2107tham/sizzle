@@ -4,3 +4,8 @@ out/
 *.log
 .DS_Store
 packages/render/out/
+
+# media assets (uploaded locally, not committed)
+packages/render/public/*.mp4
+packages/render/public/*.webm
+packages/render/public/*.mov
