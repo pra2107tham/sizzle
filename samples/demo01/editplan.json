@@ -1,0 +1,17 @@
+{
+  "plan_version": "1.2",
+  "job_id": "demo01",
+  "source_kind": "recording",
+  "fps": 30,
+  "base": { "uri": "demo01.mp4", "width": 1920, "height": 1080, "durationSec": 20 },
+  "camera": {
+    "segments": [
+      { "sourceStart": 3.0, "sourceEnd": 5.0, "amount": 1.6, "manualCenter": [0.35, 0.4] },
+      { "sourceStart": 9.0, "sourceEnd": 11.0, "amount": 1.8, "manualCenter": [0.7, 0.55] }
+    ]
+  },
+  "captions": [
+    { "start": 2.5, "end": 5.0, "text": "First we open the invoice screen" },
+    { "start": 8.5, "end": 11.0, "text": "Then we hit send" }
+  ]
+}
