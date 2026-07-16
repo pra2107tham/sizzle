@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1560" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="900" height="1560" fill="#0F172A"/>
+  <text x="450" y="46" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="bold">Sizzle Recording System — HLD</text>
+  <text x="450" y="74" text-anchor="middle" fill="#94A3B8" font-size="15">Dual ingest paths · GPU worker pool · plan-contract core · deterministic render farm</text>
+
+  <!-- CLIENTS -->
+  <rect x="70" y="100" width="360" height="86" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+  <text x="250" y="130" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">Desktop / Extension Recorder</text>
+  <text x="250" y="152" text-anchor="middle" fill="#94A3B8" font-size="13">OS hooks (uiohook): cursor@120Hz + click log</text>
+  <text x="250" y="172" text-anchor="middle" fill="#38BDF8" font-size="13" font-weight="bold">METADATA PATH — perfect signals</text>
+
+  <rect x="470" y="100" width="360" height="86" rx="12" fill="#1E293B" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="650" y="130" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">Web Upload / Loom Ingest</text>
+  <text x="650" y="152" text-anchor="middle" fill="#94A3B8" font-size="13">arbitrary MP4/WebM, no metadata</text>
+  <text x="650" y="172" text-anchor="middle" fill="#A78BFA" font-size="13" font-weight="bold">CV RECOVERY PATH — the moat</text>
+
+  <line x1="250" y1="186" x2="420" y2="228" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="650" y1="186" x2="480" y2="228" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- API -->
+  <rect x="300" y="232" width="300" height="60" rx="12" fill="#334155"/>
+  <text x="450" y="258" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">API Gateway + Auth</text>
+  <text x="450" y="280" text-anchor="middle" fill="#94A3B8" font-size="13">signed upload URLs → R2 · job enqueue</text>
+  <line x1="450" y1="292" x2="450" y2="322" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ORCHESTRATOR -->
+  <rect x="60" y="326" width="780" height="716" rx="16" fill="none" stroke="#475569" stroke-dasharray="6 5" stroke-width="1.5"/>
+  <text x="80" y="356" fill="#94A3B8" font-size="14" font-weight="bold">DURABLE WORKFLOW (Inngest/Temporal) — idempotent steps · resume on failure · per-step cost + OTel trace</text>
+
+  <!-- ANALYSIS FANOUT -->
+  <rect x="90" y="380" width="340" height="150" rx="12" fill="#134E4A"/>
+  <text x="110" y="408" fill="#FFFFFF" font-size="15" font-weight="bold">CPU workers (cheap, parallel)</text>
+  <text x="110" y="432" fill="#A7F3D0" font-size="13">ffprobe · frame extraction · PySceneDetect</text>
+  <text x="110" y="452" fill="#A7F3D0" font-size="13">metadata-path log parser (fast lane)</text>
+  <text x="110" y="472" fill="#A7F3D0" font-size="13">dwell + frame-diff click inference</text>
+  <text x="110" y="492" fill="#A7F3D0" font-size="13">path smoothing (Catmull-Rom/spring)</text>
+  <text x="110" y="512" fill="#A7F3D0" font-size="13">music ducking prep from speech spans</text>
+
+  <rect x="470" y="380" width="340" height="150" rx="12" fill="#4C1D95"/>
+  <text x="490" y="408" fill="#FFFFFF" font-size="15" font-weight="bold">GPU worker pool (metered)</text>
+  <text x="490" y="432" fill="#DDD6FE" font-size="13">WhisperX — transcript + word timestamps</text>
+  <text x="490" y="452" fill="#DDD6FE" font-size="13">CoTracker3 — cursor tracking (uploads)</text>
+  <text x="490" y="472" fill="#DDD6FE" font-size="13">OmniParser V2 — UI boxes, keyframes only</text>
+  <text x="490" y="492" fill="#DDD6FE" font-size="13">resemble-enhance — speech cleanup</text>
+  <text x="490" y="512" fill="#DDD6FE" font-size="13">SAM2 + ProPainter — premium tier only</text>
+
+  <line x1="260" y1="530" x2="400" y2="576" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="640" y1="530" x2="500" y2="576" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- PLANNER -->
+  <rect x="250" y="580" width="400" height="96" rx="12" fill="#334155"/>
+  <text x="450" y="608" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">Segment Planner + Compiler (code)</text>
+  <text x="450" y="632" text-anchor="middle" fill="#94A3B8" font-size="13">zoom choreography rules · cut list merge · caption layout</text>
+  <text x="450" y="652" text-anchor="middle" fill="#94A3B8" font-size="13">validators: bounds · timing · text fit · safe areas</text>
+  <line x1="450" y1="676" x2="450" y2="704" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- EDIT PLAN -->
+  <rect x="270" y="708" width="360" height="72" rx="12" fill="#B45309"/>
+  <text x="450" y="736" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="bold">EDIT PLAN JSON  ·  contract</text>
+  <text x="450" y="760" text-anchor="middle" fill="#FDE68A" font-size="13">versioned in Postgres · render = pure fn(plan, assets)</text>
+  <line x1="450" y1="780" x2="450" y2="808" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- QA -->
+  <rect x="250" y="812" width="400" height="96" rx="12" fill="#7C3AED"/>
+  <text x="450" y="840" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">Scene QA — stills + VLM judge</text>
+  <text x="450" y="864" text-anchor="middle" fill="#EDE9FE" font-size="13">renderStill per segment · code checks on real pixels</text>
+  <text x="450" y="884" text-anchor="middle" fill="#EDE9FE" font-size="13">judge rubric: zoom framing · legibility · cursor sanity</text>
+
+  <path d="M 250 860 C 150 860 150 628 246 628" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arR)"/>
+  <rect x="96" y="716" width="120" height="66" rx="10" fill="#7F1D1D"/>
+  <text x="156" y="742" text-anchor="middle" fill="#FECACA" font-size="13" font-weight="bold">REPAIR LOOP</text>
+  <text x="156" y="762" text-anchor="middle" fill="#FCA5A5" font-size="12">max 2 → human</text>
+
+  <line x1="450" y1="908" x2="450" y2="936" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- RENDER -->
+  <rect x="180" y="940" width="540" height="88" rx="12" fill="#334155"/>
+  <text x="450" y="968" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">Remotion Lambda render farm</text>
+  <text x="450" y="992" text-anchor="middle" fill="#94A3B8" font-size="13">video base layer + synthetic cursor + ripples + camera springs</text>
+  <text x="450" y="1012" text-anchor="middle" fill="#94A3B8" font-size="13">chunked parallel render · 16:9 / 9:16 / 1:1 from one plan</text>
+
+  <!-- SIDE STORES -->
+  <rect x="700" y="580" width="130" height="130" rx="12" fill="#0E7490"/>
+  <text x="765" y="608" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="bold">Postgres</text>
+  <text x="765" y="632" text-anchor="middle" fill="#CFFAFE" font-size="12">jobs · plans</text>
+  <text x="765" y="652" text-anchor="middle" fill="#CFFAFE" font-size="12">QA scores</text>
+  <text x="765" y="672" text-anchor="middle" fill="#CFFAFE" font-size="12">model versions</text>
+
+  <rect x="700" y="812" width="130" height="130" rx="12" fill="#0E7490"/>
+  <text x="765" y="840" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="bold">R2 storage</text>
+  <text x="765" y="864" text-anchor="middle" fill="#CFFAFE" font-size="12">raw uploads</text>
+  <text x="765" y="884" text-anchor="middle" fill="#CFFAFE" font-size="12">stills · renders</text>
+  <text x="765" y="904" text-anchor="middle" fill="#CFFAFE" font-size="12">zero egress</text>
+
+  <!-- POST -->
+  <line x1="450" y1="1028" x2="450" y2="1056" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="250" y="1060" width="400" height="76" rx="12" fill="#334155"/>
+  <text x="450" y="1088" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">Post: ffmpeg mux + audio + watermark</text>
+  <text x="450" y="1112" text-anchor="middle" fill="#94A3B8" font-size="13">clean/replaced VO · ducked music · loudness norm</text>
+
+  <line x1="450" y1="1136" x2="450" y2="1164" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="290" y="1168" width="320" height="64" rx="12" fill="#1E293B" stroke="#34D399" stroke-width="1.5"/>
+  <text x="450" y="1196" text-anchor="middle" fill="#F1F5F9" font-size="16" font-weight="bold">CDN → user · shareable link</text>
+  <text x="450" y="1218" text-anchor="middle" fill="#94A3B8" font-size="13">webhooks for API customers (Phase 3)</text>
+
+  <!-- ENGINEERING NOTES -->
+  <rect x="70" y="1268" width="760" height="240" rx="14" fill="#1E293B"/>
+  <text x="90" y="1298" fill="#F1F5F9" font-size="16" font-weight="bold">Engineering invariants</text>
+  <text x="90" y="1326" fill="#94A3B8" font-size="13.5">1. Two ingest paths, one plan schema — recorder metadata and CV recovery both compile to the same Edit Plan.</text>
+  <text x="90" y="1350" fill="#94A3B8" font-size="13.5">2. GPU spend is bounded by design: OmniParser on keyframes only, CoTracker3 only on uploads, inpainting premium-gated.</text>
+  <text x="90" y="1374" fill="#94A3B8" font-size="13.5">3. Auto-zoom ships only when click-inference precision exceeds ~90% on the ground-truth eval set.</text>
+  <text x="90" y="1398" fill="#94A3B8" font-size="13.5">4. Everything after the plan is deterministic — preview in browser equals server render, frame for frame.</text>
+  <text x="90" y="1422" fill="#94A3B8" font-size="13.5">5. Judge is audited monthly against human labels; per-job cost logged per stage.</text>
+  <text x="90" y="1446" fill="#94A3B8" font-size="13.5">6. Generative video never touches screen content — optional decorative b-roll only.</text>
+  <text x="90" y="1482" fill="#64748B" font-size="13">Scale unit: one recording = one workflow run. Horizontal scale = more GPU workers + more Lambda concurrency.</text>
+</svg>

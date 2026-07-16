@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1660" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect width="900" height="1660" fill="#FFFFFF"/>
+  <text x="450" y="48" text-anchor="middle" fill="#0F172A" font-size="28" font-weight="bold">Sizzle Recording Pipeline — which tool does what</text>
+  <text x="450" y="76" text-anchor="middle" fill="#64748B" font-size="15">Follow your recording top to bottom. Blue = ready-made AI/tool · Gray = our code · Amber = the contract</text>
+
+  <!-- INPUT -->
+  <rect x="280" y="100" width="340" height="64" rx="12" fill="#0F172A"/>
+  <text x="450" y="128" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="bold">Raw screen recording (MP4 / Loom link)</text>
+  <text x="450" y="150" text-anchor="middle" fill="#94A3B8" font-size="13">tiny cursor · hand jitter · "um"s · dead air</text>
+
+  <line x1="290" y1="164" x2="180" y2="204" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="610" y1="164" x2="700" y2="204" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- LANE HEADERS -->
+  <text x="215" y="232" text-anchor="middle" fill="#0369A1" font-size="18" font-weight="bold">AUDIO LANE</text>
+  <text x="672" y="232" text-anchor="middle" fill="#7C3AED" font-size="18" font-weight="bold">VIDEO LANE</text>
+
+  <!-- AUDIO LANE -->
+  <rect x="60" y="248" width="310" height="96" rx="12" fill="#0EA5E9"/>
+  <text x="80" y="276" fill="#FFFFFF" font-size="16" font-weight="bold">WhisperX</text>
+  <text x="80" y="298" fill="#E0F2FE" font-size="13">hears every word + exact timing</text>
+  <text x="80" y="318" fill="#E0F2FE" font-size="13">→ transcript, word timestamps, captions</text>
+
+  <line x1="215" y1="344" x2="215" y2="372" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="60" y="376" width="310" height="92" rx="12" fill="#475569"/>
+  <text x="80" y="404" fill="#FFFFFF" font-size="16" font-weight="bold">Filler + silence cutter (our code)</text>
+  <text x="80" y="426" fill="#CBD5E1" font-size="13">finds "um / uh" + dead air from timestamps</text>
+  <text x="80" y="446" fill="#CBD5E1" font-size="13">→ cut list (45s becomes 38s)</text>
+
+  <line x1="215" y1="468" x2="215" y2="496" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="60" y="500" width="310" height="92" rx="12" fill="#0EA5E9"/>
+  <text x="80" y="528" fill="#FFFFFF" font-size="16" font-weight="bold">resemble-enhance</text>
+  <text x="80" y="550" fill="#E0F2FE" font-size="13">cleans your mic audio</text>
+  <text x="80" y="570" fill="#E0F2FE" font-size="13">→ studio-quality narration</text>
+
+  <line x1="215" y1="592" x2="215" y2="620" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="60" y="624" width="310" height="92" rx="12" fill="#0EA5E9"/>
+  <text x="80" y="652" fill="#FFFFFF" font-size="16" font-weight="bold">ElevenLabs (optional)</text>
+  <text x="80" y="674" fill="#E0F2FE" font-size="13">replaces narration with an AI voice</text>
+  <text x="80" y="694" fill="#E0F2FE" font-size="13">→ consistent voiceover, any language</text>
+
+  <!-- VIDEO LANE -->
+  <rect x="520" y="248" width="320" height="88" rx="12" fill="#7C3AED"/>
+  <text x="540" y="276" fill="#FFFFFF" font-size="16" font-weight="bold">OpenCV template match</text>
+  <text x="540" y="298" fill="#EDE9FE" font-size="13">finds the cursor shape in a frame</text>
+  <text x="540" y="318" fill="#EDE9FE" font-size="13">→ starting position (x, y)</text>
+
+  <line x1="680" y1="336" x2="680" y2="362" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="520" y="366" width="320" height="88" rx="12" fill="#7C3AED"/>
+  <text x="540" y="394" fill="#FFFFFF" font-size="16" font-weight="bold">CoTracker3 (GPU)</text>
+  <text x="540" y="416" fill="#EDE9FE" font-size="13">follows that point through the whole video,</text>
+  <text x="540" y="436" fill="#EDE9FE" font-size="13">even when menus hide it → raw cursor path</text>
+
+  <line x1="680" y1="454" x2="680" y2="480" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="520" y="484" width="320" height="88" rx="12" fill="#475569"/>
+  <text x="540" y="512" fill="#FFFFFF" font-size="16" font-weight="bold">Smoothing math (our code)</text>
+  <text x="540" y="534" fill="#CBD5E1" font-size="13">Catmull-Rom / spring fit removes hand jitter</text>
+  <text x="540" y="554" fill="#CBD5E1" font-size="13">→ the silky "Screen Studio" path</text>
+
+  <line x1="680" y1="572" x2="680" y2="598" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="520" y="602" width="320" height="88" rx="12" fill="#475569"/>
+  <text x="540" y="630" fill="#FFFFFF" font-size="16" font-weight="bold">Click inference (our code)</text>
+  <text x="540" y="652" fill="#CBD5E1" font-size="13">cursor slows + dwells, UI changes next frame</text>
+  <text x="540" y="672" fill="#CBD5E1" font-size="13">→ click events with confidence</text>
+
+  <line x1="680" y1="690" x2="680" y2="716" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="520" y="720" width="320" height="88" rx="12" fill="#7C3AED"/>
+  <text x="540" y="748" fill="#FFFFFF" font-size="16" font-weight="bold">OmniParser V2 (GPU, keyframes only)</text>
+  <text x="540" y="770" fill="#EDE9FE" font-size="13">names every button on screen with boxes</text>
+  <text x="540" y="790" fill="#EDE9FE" font-size="13">→ zoom snaps to the real UI element</text>
+
+  <!-- SHORTCUT NOTE -->
+  <rect x="520" y="826" width="320" height="74" rx="12" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+  <text x="540" y="852" fill="#065F46" font-size="14" font-weight="bold">Shortcut: our own recorder</text>
+  <text x="540" y="872" fill="#047857" font-size="12.5">OS logs cursor + clicks directly (pynput/uiohook)</text>
+  <text x="540" y="890" fill="#047857" font-size="12.5">→ skips this entire lane. CV = uploads only.</text>
+
+  <!-- CONVERGE -->
+  <line x1="215" y1="716" x2="215" y2="960" stroke="#64748B" stroke-width="2"/>
+  <line x1="215" y1="960" x2="430" y2="994" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="680" y1="900" x2="680" y2="960" stroke="#64748B" stroke-width="2"/>
+  <line x1="680" y1="960" x2="470" y2="994" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="250" y="998" width="400" height="110" rx="12" fill="#475569"/>
+  <text x="450" y="1026" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">Segment planner (our code — the taste)</text>
+  <text x="450" y="1050" text-anchor="middle" fill="#CBD5E1" font-size="13">zoom 1.5x on clicks · start 0.3s early (look-ahead)</text>
+  <text x="450" y="1070" text-anchor="middle" fill="#CBD5E1" font-size="13">hold 1.2s · dead-zone for tiny moves</text>
+  <text x="450" y="1090" text-anchor="middle" fill="#CBD5E1" font-size="13">never zoom during fast mouse transit</text>
+
+  <line x1="450" y1="1108" x2="450" y2="1136" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="270" y="1140" width="360" height="70" rx="12" fill="#B45309"/>
+  <text x="450" y="1168" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="bold">EDIT PLAN JSON</text>
+  <text x="450" y="1192" text-anchor="middle" fill="#FDE68A" font-size="13">cuts · cursor path · clicks · camera keyframes · captions</text>
+
+  <line x1="450" y1="1210" x2="450" y2="1238" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="200" y="1242" width="500" height="128" rx="12" fill="#0F172A"/>
+  <text x="450" y="1270" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">Remotion render (deterministic)</text>
+  <text x="450" y="1294" text-anchor="middle" fill="#94A3B8" font-size="13">original video as base layer · big synthetic cursor on top</text>
+  <text x="450" y="1314" text-anchor="middle" fill="#94A3B8" font-size="13">click ripples · spring camera zooms · captions</text>
+  <text x="450" y="1334" text-anchor="middle" fill="#94A3B8" font-size="13">device frame + wallpaper background</text>
+  <text x="450" y="1356" text-anchor="middle" fill="#64748B" font-size="12">same plan in = same video out, every time</text>
+
+  <line x1="450" y1="1370" x2="450" y2="1398" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="250" y="1402" width="400" height="76" rx="12" fill="#475569"/>
+  <text x="450" y="1430" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">ffmpeg finish (our code)</text>
+  <text x="450" y="1454" text-anchor="middle" fill="#CBD5E1" font-size="13">mux clean audio · duck music under speech · export</text>
+
+  <line x1="450" y1="1478" x2="450" y2="1506" stroke="#64748B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="270" y="1510" width="360" height="64" rx="12" fill="#10B981"/>
+  <text x="450" y="1538" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="bold">Final video — the Clueso look</text>
+  <text x="450" y="1560" text-anchor="middle" fill="#D1FAE5" font-size="13">smooth cursor · cinematic zooms · studio audio</text>
+
+  <text x="450" y="1616" text-anchor="middle" fill="#94A3B8" font-size="13">Risk lives only in the purple video lane (recovering signals from pixels).</text>
+  <text x="450" y="1638" text-anchor="middle" fill="#94A3B8" font-size="13">Everything below the Edit Plan is zero-risk — already proven by the spine.</text>
+</svg>
